@@ -1,6 +1,8 @@
+// MUHAMMAD FATHIR - 2902730432
+
 public class PlaylistOOP {
     public static void main(String[] args) {
-        // Membuat Array untuk menampung object dari class PlaylistOOP
+        // Membuat Array untuk menampung object dari class Lagu
         Lagu[] playlist = new Lagu[5]; // Size 5
 
         // Memasukan data object ke dalam array playlist
