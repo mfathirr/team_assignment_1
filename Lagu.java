@@ -1,6 +1,7 @@
 // Membuat class PlaylistOOP
 public class Lagu {
-    // Membuat atribut yang private dan hanya bisa diakses menggunakan setter / getter
+    // Membuat atribut yang private dan hanya bisa diakses menggunakan setter /
+    // getter
     private String judul;
     private String artis;
     private double durasi;
