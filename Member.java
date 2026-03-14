@@ -1,56 +1,44 @@
-// Child class Member
 public class Member extends User {
+
     public Member(String nama) {
         super(nama);
     }
 
-    // Polymorphism
     @Override
-    public void tampilakanAkses() {
-        System.out.println("Member bisa melihat dan mencari lagu.");
+    public void tampilkanAkses() {
+        System.out.println("Member dapat melihat dan mencari lagu");
     }
 
-    // Method untuk menampilkan lagu
-    public void lihatPlaylist(Lagu[] playlist) {
-        System.out.println("\nDaftar Lagu:");
-        for (Lagu lagu : playlist) {
-            if (lagu != null) {
-                lagu.tampilkanInfo();
-            }
+    public void lihatPlaylist(Lagu[] playlist, int jumlahLagu) {
+
+        if (jumlahLagu == 0) {
+            System.out.println("Playlist kosong");
+            return;
+        }
+
+        System.out.println("Daftar Lagu:");
+
+        for (int i = 0; i < jumlahLagu; i++) {
+            playlist[i].tampilkanInfo();
         }
     }
 
-    // Method mencari lagu dari judul
-    public void cariLagu(Lagu[] playlist, String judulCari) {
-        System.out.println("Mencari Lagu : " + judulCari);
+    public void cariLagu(Lagu[] playlist, int jumlahLagu, String judul) {
+
         boolean ditemukan = false;
-        for (Lagu lagu : playlist) {
-            if (lagu != null && lagu.judulGetter().equalsIgnoreCase(judulCari)) {
-                System.out.println("\nLagu ketemu:");
-                lagu.tampilkanInfo();
+
+        for (int i = 0; i < jumlahLagu; i++) {
+
+            if (playlist[i].judulGetter().equalsIgnoreCase(judul)) {
+
+                System.out.println("Lagu ditemukan:");
+                playlist[i].tampilkanInfo();
                 ditemukan = true;
             }
         }
-        if (!ditemukan) {
-            System.out.println("Lagu tidak ketemu.");
-        }
-    }
 
-    // Method menghitung rata-rata durasi lagu
-    public void ratarataDurasi(Lagu[] playlist) {
-        double total = 0;
-        int jumlah = 0;
-        for (Lagu lagu : playlist) {
-            if (lagu != null) {
-                total += lagu.durasiGetter();
-                jumlah++;
-            }
-        }
-        if (jumlah > 0) {
-            String roundedValue = String.format("%.1f", (total / jumlah));
-            System.out.println("Rata-rata durasi lagu: " + roundedValue + " menit");
-        } else {
-            System.out.println("Playlist kosong.");
+        if (!ditemukan) {
+            System.out.println("Lagu tidak ditemukan");
         }
     }
 }
