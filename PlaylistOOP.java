@@ -1,22 +1,23 @@
 // MUHAMMAD FATHIR - 2902730432
-
 public class PlaylistOOP {
     public static void main(String[] args) {
-        // Membuat Array untuk menampung object dari class Lagu
-        Lagu[] playlist = new Lagu[5]; // Size 5
-
-        // Memasukan data object ke dalam array playlist
-        playlist[0] = new Lagu("Membasuh", "Hindia", 2.9);
-        playlist[1] = new Lagu("Membasuh", "Hindia", 2.9);
-        playlist[2] = new Lagu("Membasuh", "Hindia", 2.1);
-
-        // Looping untuk menampilkan informasi lagu
-        // TODO : Dihapus saja jika tidak dibutuhkan di soal berikutnya
-        for (Lagu lagu : playlist) {
-            // Pengecekan agar tidak terjadi NullPointerException
-            if (lagu != null) {
-                lagu.tampilkanInfo();
-            }
-        }
+        // Array untuk menyimpan playlist
+        Lagu[] playlist = new Lagu[10];
+        // Membuat objek admin dan member
+        Admin admin = new Admin("Admin Musik");
+        Member member = new Member("User Musik");
+        // Menampilkan akses masing-masing user
+        admin.tampilakanAkses();
+        member.tampilakanAkses();
+        // Admin menambahkan lagu ke playlist
+        admin.tambahLagu(playlist, new Lagu("Risk it all", "Bruno Mars", 3.3), 0);
+        admin.tambahLagu(playlist, new Lagu("All I Ask", "Adele", 3.5), 1);
+        admin.tambahLagu(playlist, new Lagu("Don't You Remember", "Adele", 4.2), 2);
+        // Member melihat daftar lagu
+        member.lihatPlaylist(playlist);
+        // Member mencari lagu
+        member.cariLagu(playlist, "Risk it all");
+        // Member menghitung rata-rata durasi lagu
+        member.ratarataDurasi(playlist);
     }
 }
