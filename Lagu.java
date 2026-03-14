@@ -60,6 +60,7 @@ public class Lagu {
     }
 }
 
+
 // Parent Class user
 class User{
     protected String nama;
