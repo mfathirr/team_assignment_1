@@ -49,7 +49,9 @@ Sistem aplikasi playlist lagu berbasis OOP (Object-Oriented Programming) yang di
 |------|-----|
 | Muhammad Fathir | 2902730432 |
 | Dara Kania Damanik | 2902704314 |
-| Geraldo Yuhendri | - |
+| Brandon Raphael Valentino | 2902735635 |
+| Geraldo Juan Yuhendri | 2902733434 |
+| Naufal Ardhi Ramlan | 2902697082 |
 
 ---
 
