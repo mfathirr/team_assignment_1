@@ -26,54 +26,48 @@ public class PlaylistOOP {
 
         while (pilihan != 3) {
 
-            System.out.println("\n=== SISTEM PLAYLIST MUSIK ===");
-            System.out.println("1. Login Admin");
-            System.out.println("2. Login Member");
-            System.out.println("3. Keluar");
+            System.out.println("\n=== MENU PLAYLIST MUSIK ===");
+            System.out.println("1. Tampilkan semua lagu");
+            System.out.println("2. Tambah lagu baru");
+            System.out.println("3. Hapus lagu berdasarkan judul");
+            System.out.println("4. Cari lagu berdasarkan judul");
+            System.out.println("5. Keluar");
             System.out.print("Pilih: ");
             pilihan = input.nextInt();
             input.nextLine();
 
-            switch (pilihan) {
-                case 1:
-                    admin.tampilkanAkses();
+            if (pilihan == 1) {
+                member.lihatPlaylist(playlist, jumlahLagu);
+            } 
+            else if (pilihan == 2) {
+                String lagi = "y";
 
-                    String tambahLagi = "y";
+                while (lagi.equalsIgnoreCase("y")) {
 
-                    while (tambahLagi.equalsIgnoreCase("y")) {
+                    jumlahLagu = admin.tambahLagu(playlist, jumlahLagu, input);
 
-                        jumlahLagu = admin.tambahLagu(playlist, jumlahLagu, input);
+                    System.out.print("Tambah lagu lagi? (y/n): ");
+                    lagi = input.nextLine();
 
-                        System.out.print("Tambah lagu lagi? (y/n): ");
-                        tambahLagi = input.nextLine();
+                }
+            } 
+            else if (pilihan == 3) {
+                System.out.print("Masukkan judul lagu yang ingin dihapus: ");
+                String judul = input.nextLine();
 
-                    }
+                jumlahLagu = admin.hapusLagu(playlist, jumlahLagu, judul);
+            } 
+            else if (pilihan == 4) {
+                System.out.print("Masukkan judul lagu yang dicari: ");
+                String judul = input.nextLine();
 
-                    break;
-                case 2:
-                    member.tampilkanAkses();
-                    System.out.println("\nPlaylist Saat Ini:");
-                    member.lihatPlaylist(playlist, jumlahLagu);
-                    System.out.println("1. Cari Lagu");
-                    System.out.println("2. Kembali");
-                    System.out.print("Pilih: ");
-                    int menu = input.nextInt();
-                    input.nextLine();
-                    if (menu == 1) {
-
-                        System.out.print("Masukkan judul lagu: ");
-                        String judul = input.nextLine();
-
-                        member.cariLagu(playlist, jumlahLagu, judul);
-
-                    }
-                    break;
-                case 3:
-                    System.out.println("Program selesai");
-                    break;
-                default:
-                    System.out.println("Pilihan tidak valid");
-                    break;
+                member.cariLagu(playlist, jumlahLagu, judul);
+            } 
+            else if (pilihan == 5) {
+                System.out.println("Program selesai");
+            } 
+            else {
+                System.out.println("Pilihan tidak valid");
             }
         }
     }

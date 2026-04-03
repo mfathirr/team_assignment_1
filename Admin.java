@@ -42,4 +42,35 @@ public class Admin extends User {
         // jumlah lagu bertambah 1 setiap kali method tambahLagu dipanggil
         return jumlahLagu + 1;
     }
+
+    //deletion
+    public int hapusLagu(Lagu[] playlist, int jumlahLagu, String judul) {
+
+        int index = -1;
+
+        // cari index lagu (linear search)
+        for (int i = 0; i < jumlahLagu; i++) {
+            if (playlist[i].judulGetter().equalsIgnoreCase(judul)) {
+                index = i;
+                break;
+            }
+        }
+
+        //cek lagu ada atau tidak
+        if (index == -1) {
+            System.out.println("Lagu tidak ditemukan!");
+            return jumlahLagu;
+        }
+
+        // geser array
+        for (int i = index; i < jumlahLagu - 1; i++) {
+            playlist[i] = playlist[i + 1];
+        }
+
+        playlist[jumlahLagu - 1] = null;
+
+        System.out.println("Lagu berhasil dihapus!");
+
+        return jumlahLagu - 1;
+    }
 }

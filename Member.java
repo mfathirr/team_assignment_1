@@ -9,6 +9,7 @@ public class Member extends User {
         System.out.println("Member dapat melihat dan mencari lagu");
     }
 
+    // traversal show semua lagu
     public void lihatPlaylist(Lagu[] playlist, int jumlahLagu) {
 
         if (jumlahLagu == 0) {
@@ -16,13 +17,14 @@ public class Member extends User {
             return;
         }
 
-        System.out.println("Daftar Lagu:");
+        System.out.println("\n=== Daftar Lagu ===");
 
         for (int i = 0; i < jumlahLagu; i++) {
             playlist[i].tampilkanInfo();
         }
     }
 
+    //searching pakai linear search
     public void cariLagu(Lagu[] playlist, int jumlahLagu, String judul) {
 
         boolean ditemukan = false;
