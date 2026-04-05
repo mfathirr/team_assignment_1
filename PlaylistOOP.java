@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class PlaylistOOP {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
 
         Lagu[] playlist = new Lagu[10];
@@ -31,43 +32,51 @@ public class PlaylistOOP {
             System.out.println("2. Tambah lagu baru");
             System.out.println("3. Hapus lagu berdasarkan judul");
             System.out.println("4. Cari lagu berdasarkan judul");
-            System.out.println("5. Urut lagu berdasarkan durasi");
-            System.out.println("6. Keluar");
+            System.out.println("5. Urut lagu berdasarkan durasi (Bubble Sort)");
+            System.out.println("6. Urut lagu berdasarkan durasi (Selection Sort)");
+            System.out.println("7. Keluar");
             System.out.print("Pilih: ");
+
             pilihan = input.nextInt();
             input.nextLine();
 
             if (pilihan == 1) {
                 member.tampilkanSemuaLagu(playlist, jumlahLagu);
+
             } else if (pilihan == 2) {
                 String lagi = "y";
 
                 while (lagi.equalsIgnoreCase("y")) {
-
                     jumlahLagu = admin.tambahLagu(playlist, jumlahLagu, input);
 
                     System.out.print("Tambah lagu lagi? (y/n): ");
                     lagi = input.nextLine();
-
                 }
+
             } else if (pilihan == 3) {
                 System.out.print("Masukkan judul lagu yang ingin dihapus: ");
                 String judul = input.nextLine();
 
                 jumlahLagu = admin.hapusLagu(playlist, jumlahLagu, judul);
+
             } else if (pilihan == 4) {
                 System.out.print("Masukkan judul lagu yang dicari: ");
                 String judul = input.nextLine();
 
                 member.cariLagu(playlist, jumlahLagu, judul);
+
             } else if (pilihan == 5) {
                 member.urutkanLaguBerdasarkanDurasi(playlist, jumlahLagu);
+
             } else if (pilihan == 6) {
+                member.urutkanLaguSelectionSort(playlist, jumlahLagu);
+
+            } else if (pilihan == 7) {
                 System.out.println("Program selesai");
+
             } else {
                 System.out.println("Pilihan tidak valid");
             }
         }
     }
-
 }
