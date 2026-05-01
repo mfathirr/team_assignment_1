@@ -25,7 +25,7 @@ public class PlaylistOOP {
 
         int pilihan = 0;
 
-        while (pilihan != 6) {
+        while (pilihan != 7) {
 
             System.out.println("\n=== MENU PLAYLIST MUSIK ===");
             System.out.println("1. Tampilkan semua lagu");

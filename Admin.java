@@ -39,6 +39,8 @@ public class Admin extends User {
 
         System.out.println("Lagu berhasil ditambahkan");
 
+        playlist[jumlahLagu].tampilkanInfo();
+
         // jumlah lagu bertambah 1 setiap kali method tambahLagu dipanggil
         return jumlahLagu + 1;
     }
